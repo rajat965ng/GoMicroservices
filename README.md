@@ -1,2 +1,3 @@
 ## List of Microservices
-- Caching with MemCached over Postgres and Gorilla
+- P1: Caching with MemCached over Postgres and Gorilla
+- P2: Pgx connection Pooling

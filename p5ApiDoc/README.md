@@ -24,3 +24,7 @@
   body
   formData
   ```
+  
+[Http Test]  
+- godotenv - to load .env file
+- godotenv go test ./test/

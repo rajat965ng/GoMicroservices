@@ -1,11 +1,12 @@
 package controller
 
 import (
+	"bytes"
 	"encoding/json"
-	"fmt"
 	"github.com/gorilla/mux"
 	"net/http"
 	"os"
+	"text/template"
 )
 
 type controller struct {
@@ -24,8 +25,9 @@ func NewController(router *mux.Router) (*controller,error)  {
 }
 
 func (ctrl *controller) Register()  {
-	ctrl.router.HandleFunc("/api/v1/{id}", getHello).Methods("GET")
+	ctrl.router.HandleFunc("/api/v1/{id}", GetHello).Methods("GET")
 }
+
 
 // GetHello godoc
 // @Summary Hello
@@ -36,10 +38,14 @@ func (ctrl *controller) Register()  {
 // @Param id path string true "Api Id"
 // @Success 200 {object} greetingResponse
 // @Router /api/v1/{id} [get]
-func getHello(writer http.ResponseWriter, request *http.Request) {
+func GetHello(writer http.ResponseWriter, request *http.Request) {
 	id := mux.Vars(request)["id"]
+	buff := &bytes.Buffer{}
+
+	tmpl,_ := template.New("helloTmpl").Parse(os.Getenv("APP_MESSAGE"))
+	tmpl.Execute(buff,id)
 	data := &greetingResponse{
-		Msg:fmt.Sprintf(os.Getenv("APP_MESSAGE"),id),
+		Msg:buff.String(),
 	}
 	writer.Header().Add("Content-Type", "application/json")
 	json.NewEncoder(writer).Encode(data)

@@ -1,0 +1,42 @@
+basePath: /
+definitions:
+  controller.greetingResponse:
+    properties:
+      msg:
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    email: rajatnigam89@gmail.com
+    name: API Support
+  description: This is a sample service for managing Ids
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Test API
+  version: "1.0"
+paths:
+  /api/v1/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Get details of all orders
+      parameters:
+      - description: Api Id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/controller.greetingResponse'
+      summary: Hello
+      tags:
+      - orders
+swagger: "2.0"

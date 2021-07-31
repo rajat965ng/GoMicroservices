@@ -15,4 +15,6 @@
 
 - migrate -path db/ -database postgres://user:password@localhost:5432/dbname?sslmode=disable  force 15
 
-
+[Populate DB]
+- go install github.com/MarioCarrion/complex-pipelines/part5
+- DATABASE_URL="postgres://user:password@localhost:5432/dbname?sslmode=disable" part5

@@ -4,5 +4,5 @@
 - P3: Gorm
 - P4: Configuration [github.com/joho/godotenv]
 - P5: Swaggo (swagger implementation)/ httptest - API testing
-
+- P6: Jaeger (API Tracing)
 

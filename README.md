@@ -7,3 +7,4 @@
 - P6: Jaeger (API Tracing)
 - P7: ElasticSearch
 - P8: RabbitMQ
+- P9: Kakfa

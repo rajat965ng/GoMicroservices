@@ -1,0 +1,6 @@
+[Spotify Kafka]
+- docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=localhost --env ADVERTISED_PORT=9092 spotify/kafka
+
+[Bitnami Kafka]
+- docker run -p 2181:2181 -e ALLOW_ANONYMOUS_LOGIN=yes  bitnami/zookeeper:latest
+- docker run -p 9092:9092 -e KAFKA_BROKER_ID=1 -e KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE=true -e KAFKA_CFG_LISTENERS=PLAINTEXT://:9092 -e KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://<MACHINE_IP>:9092 -e KAFKA_CFG_ZOOKEEPER_CONNECT=<MACHINE_IP>:2181 -e ALLOW_PLAINTEXT_LISTENER=yes bitnami/kafka:latest

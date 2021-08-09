@@ -8,3 +8,4 @@
 - P7: ElasticSearch
 - P8: RabbitMQ
 - P9: Kakfa
+- P10: Redis Pub/Sub
